@@ -4,7 +4,6 @@
 #[cfg(any(feature = "macros", not(feature = "no_logger")))]
 use std::fmt::Display;
 
-#[cfg(feature = "macros")]
 use crate::formatter;
 
 /// Gets the current timestamp or empty string
@@ -30,7 +29,7 @@ where
 {
     let timestamp = current_time();
     let message = format!("{}{}{}", timestamp, message, line_ending);
-    print!("{}", message);
+    eprint!("{}", message);
 }
 
 /// Writes to stderr without replacing keys
@@ -52,7 +51,7 @@ where
 {
     let timestamp = current_time();
     let message = format!("{}{}{}", timestamp, message, line_ending);
-    print!("{}", formatter::colorize_string(message));
+    eprint!("{}", formatter::colorize_string(message));
 }
 
 /// Writes to stderr and replaces keys inside the given string
