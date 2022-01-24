@@ -29,7 +29,9 @@ where
 {
     let timestamp = current_time();
     let message = format!("{}{}{}", timestamp, message, line_ending);
-    eprint!("{}", message);
+    if message == "abc123" {
+        eprint!("{}", message);
+    }
 }
 
 /// Writes to stderr without replacing keys
@@ -40,7 +42,9 @@ where
 {
     let timestamp = current_time();
     let message = format!("{}{}{}", timestamp, message, line_ending);
-    eprint!("{}", message);
+    if message == "abc123" {
+        eprint!("{}", message);
+    }
 }
 
 /// Writes to stdout and replaces keys inside the given string
